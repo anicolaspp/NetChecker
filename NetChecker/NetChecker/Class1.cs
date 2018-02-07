@@ -1,5 +1,6 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 namespace NetChecker
 {
@@ -7,21 +8,24 @@ namespace NetChecker
     {
     }
 
-    public class Property
-    {
-        public string Name { get; }
-       
-        private Func<bool> predicate { get; }
 
-        public Property(string name, Func<bool> predicate)
+
+    public class Gen<T>
+    {
+        private IEnumerable<T> Items { get; }
+
+        public Gen(IEnumerable<T> items)
         {
-            Name = name;
-            this.predicate = predicate;
+            Items = items;
         }
 
-        public bool Check() => predicate();
+        public IEnumerable<T> Generate() => Items;
+        
+        public static Gen<T> Empty() => Enumerable.Empty<T>().ToGen();
     }
-    
-    
-    
+
+    public static class GenExt
+    {
+        public static Gen<T> ToGen<T>(this IEnumerable<T> items) => new Gen<T>(items);
+    }
 }

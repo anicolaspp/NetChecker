@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using FluentAssertions;
 using NetChecker;
 using Xunit;
@@ -33,4 +34,15 @@ namespace tests
            property.Check().Should().BeTrue();
        }
    }
+
+    public class GenTest
+    {
+        [Fact]
+        public void EmptyGen()
+        {
+            var gen = Gen<int>.Empty();
+
+            gen.Generate().Count().Should().Be(0);
+        }
+    }
 }
