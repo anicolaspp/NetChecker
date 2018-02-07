@@ -7,8 +7,6 @@ namespace NetChecker
     {
     }
 
-
-
     public class Property
     {
         public string Name { get; }
