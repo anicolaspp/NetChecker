@@ -8,7 +8,7 @@ namespace NetChecker
     {
         public static Gen<T> ToGen<T>(this IEnumerable<T> items) => new DefaultGen<T>(items);
 
-        public static Gen<T> ChooseFrom<T>(this IEnumerator<T> producer, int count = 100)
+        public static Gen<T> ChooseFrom<T>(this IProducer<T> producer, int count = 100)
         {
             var produced = Choose(producer, count);
             
@@ -32,12 +32,9 @@ namespace NetChecker
                 .GenerateProperties("", gen, fn)
                 .Any(p => p.Check());
 
-        private static IEnumerable<T> Choose<T>(IEnumerator<T> producer, int count = 100)
+        private static IEnumerable<T> Choose<T>(IProducer<T> producer, int count = 100)
         {
-            while (count-- > 0 && producer.MoveNext())
-            {
-                yield return producer.Current;
-            }
+            return producer.Take(count);
         }
 
         private static IEnumerable<T> Choose<T>(List<T> from, int count = 100)

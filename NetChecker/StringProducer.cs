@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace NetChecker
 {
-    public class IntProducer : IProducer<int>
+    public class StringProducer : IProducer<string>
     {
-        public IEnumerator<int> GetEnumerator()
+        public IEnumerator<string> GetEnumerator()
         {
             while (true)
             {
-                yield return new Random().Next();
+                yield return new Random().Next().ToString();
             }
         }
 
