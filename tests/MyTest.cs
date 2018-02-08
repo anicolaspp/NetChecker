@@ -34,6 +34,6 @@ namespace tests
                .ForAll(t => comcat(t.Item1, t.Item2).StartsWith(t.Item1) && comcat(t.Item1, t.Item2).EndsWith(t.Item2))
                .Should()
                .BeTrue();
-        }
+        } 
     }
 }
