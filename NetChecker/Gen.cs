@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace NetChecker
 {
-    public class Gen<T>
+    public abstract class Gen<T>
     {
         private IEnumerable<T> Items { get; }
 
-        public Gen(IEnumerable<T> items)
+        protected Gen(IEnumerable<T> items)
         {
             Items = items;
         }
@@ -15,5 +15,14 @@ namespace NetChecker
         public IEnumerable<T> Generate() => Items;
         
         public static Gen<T> Empty() => Enumerable.Empty<T>().ToGen();
+        
+        public static Gen<T> FromEnumerable(IEnumerable<T> items) => new DefaultGen<T>(items);
+    }
+
+    public class DefaultGen<T> : Gen<T>
+    {
+        public DefaultGen(IEnumerable<T> items) : base(items)
+        {
+        }
     }
 }
