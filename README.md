@@ -1,5 +1,5 @@
 # NetChecker
-.NET Minimalist Property Based Framework
+.NET Minimalist Property Based Testing Framework
 
 ```
 PM> Install-Package NetChecker -Version 1.0.0
