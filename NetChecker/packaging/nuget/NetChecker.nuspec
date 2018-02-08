@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>NetChecker</id>
+        <title>NetChecker</title>
+        <version>1.0.0.0</version>
+        <authors>anicolaspp</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Minimalist Property Based Framework</description>
+        <projectUrl>https://github.com/anicolaspp/NetChecker</projectUrl>
+        <tags>testing testing-framework testing-tool property-based-testing</tags>
+        <developmentDependency>true</developmentDependency>
+
+    </metadata>
+</package>

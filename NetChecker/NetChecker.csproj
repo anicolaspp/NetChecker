@@ -2,4 +2,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NugetPacker" Version="0.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="nugets" />
+  </ItemGroup>
 </Project>
