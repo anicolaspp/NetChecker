@@ -47,3 +47,11 @@ namespace tests
     }
 }
 ```
+Please notice that each test or `assertion` of the form `x => sqr(x) == x` is executed `100` times by default. The method `ChooseFrom` is the one generating the sample data to be used on the test. By using `ForAll` and `ForAny` we can do different kind of assertions. `Should().BeTrue()` are just part of `xUnit` framework and you could be just doing simple assertions of the form:
+```
+ var result = Gen<int>
+    .FromEnumerable(Enumerable.Range(1, 100))
+    .Any(x => sqr(x) == x)
+   
+ assert (result == true);
+```
