@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
@@ -8,35 +6,6 @@ using Xunit;
 
 namespace tests
 {
-   public class PropertyTest
-   {
-
-      [Fact]
-      public void CreateProperty()
-      {
-          var property = new Property("true", () => true);
-
-          property.Name.Should().Be("true");
-          property.Check().Should().Be(true);
-      }
-
-       [Fact]
-       public void FailedProperty()
-       {
-           var property = new Property("failed", () => 5 == 4);
-
-           property.Check().Should().BeFalse();
-       }
-
-       [Fact]
-       public void TrueProperty()
-       {
-           var property = new Property("pass", () => 5 == 5);
-
-           property.Check().Should().BeTrue();
-       }
-   }
-
     public class GenTest
     {
         [Fact]
@@ -80,24 +49,6 @@ namespace tests
             var items = producer.ChooseFrom(20).Generate();
 
             items.Count().Should().Be(20);
-        }
-    }
-
-    public class PropertyGeneratorTest
-    {
-        [Fact]
-        public void GenerateProperties()
-        {
-            var gen = new IntProducer().ChooseFrom();
-
-            var properties = PropertyGenerator.GenerateProperties("mustbetrue", gen, i => i == i).ToList();
-
-            properties
-                .Select(p => p.Check())
-                .ToList()
-                .TrueForAll(x => x)
-                .Should()
-                .BeTrue();
         }
     }
 }
