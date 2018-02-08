@@ -1,6 +1,2 @@
 language: csharp
-solution: NetChcker/NetChecker.sln
-
-install:
-  - sudo apt-get install -y gtk-sharp2
-  - nuget restore NetChecker.sln
+solution: NetChecker.sln
