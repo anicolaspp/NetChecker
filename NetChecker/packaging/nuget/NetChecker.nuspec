@@ -3,7 +3,7 @@
     <metadata>
         <id>NetChecker</id>
         <title>NetChecker</title>
-        <version>1.0.0.0</version>
+        <version>1.0.0.1</version>
         <authors>anicolaspp</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Minimalist Property Based Framework</description>
