@@ -12,7 +12,5 @@ namespace NetChecker
             => generator
                 .Generate()
                 .Select(item => new Property(groupName + item, () => fn(item)));
-    }
-    
-    
+    }   
 }
