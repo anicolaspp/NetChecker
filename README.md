@@ -1,6 +1,10 @@
 # NetChecker
 .NET Minimalist Property Based Framework
 
+```
+PM> Install-Package NetChecker -Version 1.0.0
+```
+
 Using  `NetChecker` we can write tests on the following way
 
 ```
