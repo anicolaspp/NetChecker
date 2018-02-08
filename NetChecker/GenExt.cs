@@ -15,9 +15,9 @@ namespace NetChecker
             return new DefaultGen<T>(produced);
         }
 
-        public static Gen<T> ChooseFrom<T>(this IEnumerable<T> items)
+        public static Gen<T> ChooseFrom<T>(this IEnumerable<T> items, int count = 100)
         {
-            var selected = Choose(items.ToList());
+            var selected = Choose(items.ToList(), count);
             
             return new DefaultGen<T>(selected);
         }
@@ -32,12 +32,9 @@ namespace NetChecker
                 .GenerateProperties("", gen, fn)
                 .Any(p => p.Check());
 
-        private static IEnumerable<T> Choose<T>(IProducer<T> producer, int count = 100)
-        {
-            return producer.Take(count);
-        }
-
-        private static IEnumerable<T> Choose<T>(List<T> from, int count = 100)
+        private static IEnumerable<T> Choose<T>(IProducer<T> producer, int count) => producer.Take(count);
+        
+        private static IEnumerable<T> Choose<T>(List<T> from, int count)
         {
             for (int i = 0; i < count; i++)
             {
