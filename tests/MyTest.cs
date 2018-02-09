@@ -8,7 +8,7 @@ namespace tests
     public class MyTest
     {
         private T id<T>(T x) => x;
-        private int sqrt(int x) => x * x;
+        private int pow(int x) => x * x;
         private string concat(string a, string b) => a + b; 
 
         [Fact]
@@ -20,7 +20,7 @@ namespace tests
         [Fact]
         public void SomeSquares()
         {
-            Gen<int>.FromEnumerable(Enumerable.Range(1, 100)).Any(x => sqrt(x) == x).Should().BeTrue();
+            Gen<int>.FromEnumerable(Enumerable.Range(1, 100)).Any(x => pow(x) == x).Should().BeTrue();
         }
 
         [Fact]
