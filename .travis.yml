@@ -2,6 +2,6 @@ language: csharp
 solution: NetChecker.sln
 dist: trusty
 mono: none
-dotnet: 1.0.1
+dotnet: 1.1.5
 install:
 - dotnet restore
