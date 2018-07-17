@@ -5,3 +5,5 @@ mono: none
 dotnet: 1.1.5
 install:
 - dotnet restore
+script:
+  - xbuild /p:Configuration=Release NetChecker.sln
