@@ -5,4 +5,4 @@ dotnet: 1.1.5
 solution: NetChecker.sln
 script:
   - dotnet restore
-  - dotnet build 
+  - dotnet build  
